@@ -1,0 +1,8 @@
+bases:
+  - ../../base
+
+namespace: ecommerce-dev
+nameSuffix: -dev
+
+commonLabels:
+  variant: development

@@ -1,0 +1,8 @@
+bases:
+  - ../../base
+
+namespace: ecommerce-prod
+nameSuffix: -prod
+
+commonLabels:
+  variant: production

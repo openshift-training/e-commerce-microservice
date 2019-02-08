@@ -1,0 +1,8 @@
+bases:
+  - ../../base
+
+namespace: ecommerce-stage
+nameSuffix: -stage
+
+commonLabels:
+  variant: staging
