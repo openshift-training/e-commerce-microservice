@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+  labels:
+    com.xebialabs.service: jhipster-import-dashboards
+  name: jhipster-import-dashboards
+spec:
+  replicas: 1
+  selector:
+    com.xebialabs.service: jhipster-import-dashboards
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      labels:
+        com.xebialabs.service: jhipster-import-dashboards
+    spec:
+      containers:
+      - env:
+        - name: ELASTICSEARCH_URL
+          value: http://jhipster-elasticsearch:9200
+        image: ' '
+        name: jhipster-import-dashboards
+        resources: {}
+      restartPolicy: Always
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - jhipster-import-dashboards
+      from:
+        kind: ImageStreamTag
+        name: jhipster-import-dashboards:v3.0.1
+    type: ImageChange

@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    com.xebialabs.service: jhipster-console
+  name: jhipster-console
+spec:
+  replicas: 1
+  selector:
+    com.xebialabs.service: jhipster-console
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      labels:
+        com.xebialabs.service: jhipster-console
+    spec:
+      containers:
+      - env:
+        - name: ELASTICSEARCH_URL
+          value: http://jhipster-elasticsearch:9200
+        image: ' '
+        name: jhipster-console
+        ports:
+        - containerPort: 5601
+        resources: {}
+      restartPolicy: Always
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - jhipster-console
+      from:
+        kind: ImageStreamTag
+        name: jhipster-console:v3.0.1
+    type: ImageChange

@@ -1,0 +1,46 @@
+resources:
+  # Store Application
+  - store-app-deploymentconfig.yaml
+  - store-app-imagestream.yaml
+  - store-app-service.yaml
+  # Store Database
+  - invoice-mysql-deploymentconfig.yaml
+  - invoice-mysql-imagestream.yaml
+  - invoice-mysql-service.yaml  
+  # Invoice Application
+  - invoice-app-deploymentconfig.yaml
+  - invoice-app-imagestream.yaml
+  - invoice-app-service.yaml
+  # Invoice Database
+  - invoice-mysql-deploymentconfig.yaml
+  - invoice-mysql-imagestream.yaml
+  - invoice-mysql-service.yaml
+  # Notification Application
+  - notification-app-deploymentconfig.yaml
+  - notification-app-imagestream.yaml
+  # Notification Database
+  - notification-mongodb-deployment.yaml
+  - notification-mongodb-deploymentconfig.yaml
+  - notification-mongodb-imagestream.yaml
+  - notification-mongodb-service.yaml  
+  # JHipster Registry
+  - jhipster-registry-claim0-persistentvolumeclaim.yaml
+  - jhipster-registry-deploymentconfig.yaml
+  - jhipster-registry-imagestream.yaml
+  - jhipster-registry-service.yaml  
+  # JHipster logstash
+  - jhipster-logstash-deploymentconfig.yaml
+  - jhipster-logstash-imagestream.yaml
+  - jhipster-logstash-service.yaml
+  # JHipster Console
+  - jhipster-console-deploymentconfig.yaml
+  - jhipster-console-imagestream.yaml
+  - jhipster-console-service.yaml
+  # JHipster elasticsearch
+  - jhipster-elasticsearch-deploymentconfig.yaml
+  - jhipster-elasticsearch-imagestream.yaml
+  - jhipster-elasticsearch-service.yaml
+  # JHipster import Job
+  - jhipster-import-dashboards-deployment.yaml
+  - jhipster-import-dashboards-deploymentconfig.yaml
+  - jhipster-import-dashboards-imagestream.yaml

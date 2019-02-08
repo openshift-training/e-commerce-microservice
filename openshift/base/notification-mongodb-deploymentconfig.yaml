@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    com.xebialabs.service: notification-mongodb
+  name: notification-mongodb
+spec:
+  replicas: 1
+  selector:
+    com.xebialabs.service: notification-mongodb
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      labels:
+        com.xebialabs.service: notification-mongodb
+    spec:
+      containers:
+      - image: ' '
+        name: notification-mongodb
+        resources: {}
+      restartPolicy: Always
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - notification-mongodb
+      from:
+        kind: ImageStreamTag
+        name: notification-mongodb:3.6.3
+    type: ImageChange

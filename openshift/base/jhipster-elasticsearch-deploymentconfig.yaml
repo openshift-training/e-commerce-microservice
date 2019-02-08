@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    com.xebialabs.service: jhipster-elasticsearch
+  name: jhipster-elasticsearch
+spec:
+  replicas: 1
+  selector:
+    com.xebialabs.service: jhipster-elasticsearch
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.xebialabs.service: jhipster-elasticsearch
+    spec:
+      containers:
+      - image: ' '
+        name: jhipster-elasticsearch
+        resources: {}
+      restartPolicy: Always
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - jhipster-elasticsearch
+      from:
+        kind: ImageStreamTag
+        name: jhipster-elasticsearch:v3.0.1
+    type: ImageChange

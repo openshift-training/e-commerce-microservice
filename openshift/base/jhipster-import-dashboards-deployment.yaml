@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.17.0 (a74acad)
+  creationTimestamp: null
+  labels:
+    com.xebialabs.service: jhipster-import-dashboards
+  name: jhipster-import-dashboards
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        com.xebialabs.service: jhipster-import-dashboards
+    spec:
+      containers:
+      - env:
+        - name: ELASTICSEARCH_URL
+          value: http://jhipster-elasticsearch:9200
+        image: jhipster/jhipster-import-dashboards:v3.0.1
+        name: jhipster-import-dashboards
+        resources: {}
+      restartPolicy: Always
+status: {}

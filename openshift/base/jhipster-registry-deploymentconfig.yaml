@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    com.xebialabs.service: jhipster-registry
+  name: jhipster-registry
+spec:
+  replicas: 1
+  selector:
+    com.xebialabs.service: jhipster-registry
+  strategy:
+    resources: {}
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        com.xebialabs.service: jhipster-registry
+    spec:
+      containers:
+      - env:
+        - name: JHIPSTER_LOGGING_LOGSTASH_ENABLED
+          value: "true"
+        - name: JHIPSTER_LOGGING_LOGSTASH_HOST
+          value: jhipster-logstash
+        - name: JHIPSTER_METRICS_LOGS_ENABLED
+          value: "true"
+        - name: JHIPSTER_METRICS_LOGS_REPORTFREQUENCY
+          value: "60"
+        - name: JHIPSTER_REGISTRY_PASSWORD
+          value: admin
+        - name: SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS
+          value: file:./central-config
+        - name: SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE
+          value: native
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        - name: SPRING_SECURITY_USER_PASSWORD
+          value: admin
+        image: ' '
+        name: jhipster-registry
+        ports:
+        - containerPort: 8761
+        resources: {}
+        volumeMounts:
+        - mountPath: /central-config
+          name: jhipster-registry-claim0
+      restartPolicy: Always
+      volumes:
+      - name: jhipster-registry-claim0
+        persistentVolumeClaim:
+          claimName: jhipster-registry-claim0
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - jhipster-registry
+      from:
+        kind: ImageStreamTag
+        name: jhipster-registry:v4.0.2
+    type: ImageChange

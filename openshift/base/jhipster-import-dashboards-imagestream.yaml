@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  creationTimestamp: null
+  labels:
+    com.xebialabs.service: jhipster-import-dashboards
+  name: jhipster-import-dashboards
+spec:
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: jhipster/jhipster-import-dashboards:v3.0.1
+    generation: null
+    importPolicy: {}
+    name: v3.0.1
+status:
+  dockerImageRepository: ""

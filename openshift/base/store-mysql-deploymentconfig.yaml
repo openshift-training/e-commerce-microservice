@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    com.xebialabs.service: store-mysql
+  name: store-mysql
+spec:
+  replicas: 1
+  selector:
+    com.xebialabs.service: store-mysql
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      labels:
+        com.xebialabs.service: store-mysql
+    spec:
+      containers:
+      - args:
+        - mysqld
+        - --lower_case_table_names=1
+        - --skip-ssl
+        - --character_set_server=utf8mb4
+        - --explicit_defaults_for_timestamp
+        env:
+        - name: MYSQL_ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        - name: MYSQL_DATABASE
+          value: store
+        - name: MYSQL_USER
+          value: root
+        image: ' '
+        name: store-mysql
+        resources: {}
+      restartPolicy: Always
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - store-mysql
+      from:
+        kind: ImageStreamTag
+        name: store-mysql:5.7.20
+    type: ImageChange
