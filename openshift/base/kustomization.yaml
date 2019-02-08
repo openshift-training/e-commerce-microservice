@@ -4,9 +4,9 @@ resources:
   - store-app-imagestream.yaml
   - store-app-service.yaml
   # Store Database
-  - invoice-mysql-deploymentconfig.yaml
-  - invoice-mysql-imagestream.yaml
-  - invoice-mysql-service.yaml  
+  - store-mysql-deploymentconfig.yaml
+  - store-mysql-imagestream.yaml
+  - store-mysql-service.yaml  
   # Invoice Application
   - invoice-app-deploymentconfig.yaml
   - invoice-app-imagestream.yaml
