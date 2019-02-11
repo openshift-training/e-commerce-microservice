@@ -47,5 +47,4 @@ resources:
   - jhipster-elasticsearch-imagestream.yaml
   - jhipster-elasticsearch-service.yaml
   # JHipster import Job
-  - jhipster-import-dashboards-deploymentconfig.yaml
-  - jhipster-import-dashboards-imagestream.yaml
+  - jhipster-import-dashboards-job.yaml
