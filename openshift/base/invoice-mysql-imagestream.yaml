@@ -14,5 +14,3 @@ spec:
     generation: null
     importPolicy: {}
     name: 5.7.20
-status:
-  dockerImageRepository: ""

@@ -14,5 +14,3 @@ spec:
     generation: null
     importPolicy: {}
     name: latest
-status:
-  dockerImageRepository: ""

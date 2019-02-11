@@ -3,6 +3,7 @@ resources:
   - store-app-deploymentconfig.yaml
   - store-app-imagestream.yaml
   - store-app-service.yaml
+  - store-app-route.yaml
   # Store Database
   - store-mysql-deploymentconfig.yaml
   - store-mysql-imagestream.yaml
@@ -28,6 +29,7 @@ resources:
   - jhipster-registry-deploymentconfig.yaml
   - jhipster-registry-imagestream.yaml
   - jhipster-registry-service.yaml  
+  - jhipster-registry-route.yaml
   # JHipster logstash
   - jhipster-logstash-deploymentconfig.yaml
   - jhipster-logstash-imagestream.yaml
@@ -36,6 +38,7 @@ resources:
   - jhipster-console-deploymentconfig.yaml
   - jhipster-console-imagestream.yaml
   - jhipster-console-service.yaml
+  - jhipster-console-route.yaml
   # JHipster elasticsearch
   - jhipster-elasticsearch-deploymentconfig.yaml
   - jhipster-elasticsearch-imagestream.yaml

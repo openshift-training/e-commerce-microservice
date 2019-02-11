@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    kubernetes.io/tls-acme: 'true'
+  labels:
+    com.xebialabs.service: store-app
+  name: store-app
+spec:
+  host: store-app.openshift-training.io
+  port:
+    targetPort: '8080'
+  to:
+    kind: Service
+    name: store-app
+    weight: 100
+  wildcardPolicy: None
