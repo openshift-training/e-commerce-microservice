@@ -22,7 +22,7 @@ spec:
         - name: JHIPSTER_REGISTRY_PASSWORD
           value: admin
         - name: JHIPSTER_SLEEP
-          value: "30"
+          value: "10"
         - name: SPRING_CLOUD_CONFIG_URI
           value: http://admin:admin@jhipster-registry:8761/config
         - name: SPRING_DATA_MONGODB_DATABASE

@@ -29,6 +29,22 @@ spec:
           value: "false"
         image: ' '
         name: jhipster-logstash
+        readinessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 5000
+          timeoutSeconds: 10
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 5000
+          timeoutSeconds: 3
         ports:
         - containerPort: 5000
         - containerPort: 5000

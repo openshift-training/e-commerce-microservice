@@ -10,7 +10,7 @@ spec:
   - annotations: null
     from:
       kind: DockerImage
-      name: xebialabsunsupported/ecommerce-invoice
+      name: xebialabsunsupported/ecommerce-invoice:1.0.2
     generation: null
     importPolicy: {}
     name: latest

@@ -10,7 +10,7 @@ spec:
   - annotations: null
     from:
       kind: DockerImage
-      name: xebialabsunsupported/ecommerce-notification
+      name: xebialabsunsupported/ecommerce-notification:1.0.2
     generation: null
     importPolicy: {}
     name: latest

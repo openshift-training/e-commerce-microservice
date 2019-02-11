@@ -38,9 +38,37 @@ spec:
           value: admin
         image: ' '
         name: jhipster-registry
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 8761
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 8761
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 4
         ports:
         - containerPort: 8761
         resources: {}
+        volumeMounts:
+        - mountPath: /central-config
+          name: config
+      volumes:
+        - configMap:
+            defaultMode: 420
+            name: config
+          name: config
   test: false
   triggers:
   - type: ConfigChange

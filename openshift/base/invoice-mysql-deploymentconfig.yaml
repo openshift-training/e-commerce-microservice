@@ -9,7 +9,10 @@ spec:
   selector:
     com.xebialabs.service: invoice-mysql
   strategy:
+    recreateParams:
+      timeoutSeconds: 600
     resources: {}
+    type: Recreate
   template:
     metadata:
       labels:
@@ -29,6 +32,27 @@ spec:
           value: invoice
         - name: MYSQL_USER
           value: root
+        readinessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - '-i'
+              - '-c'
+              - >-
+                mysql -h 127.0.0.1 -u $MYSQL_USER -D $MYSQL_DATABASE -e 'SELECT 1'
+          failureThreshold: 3
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 3306
+          timeoutSeconds: 1
         image: ' '
         name: invoice-mysql
         resources: {}

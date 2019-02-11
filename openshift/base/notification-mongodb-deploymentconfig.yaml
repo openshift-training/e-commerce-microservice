@@ -9,7 +9,10 @@ spec:
   selector:
     com.xebialabs.service: notification-mongodb
   strategy:
+    recreateParams:
+      timeoutSeconds: 600
     resources: {}
+    type: Recreate
   template:
     metadata:
       labels:
@@ -17,6 +20,22 @@ spec:
     spec:
       containers:
       - image: ' '
+        readinessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - '-i'
+              - '-c'
+              - >-
+                mongo 127.0.0.1:27017/notification --eval="quit()"
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 27017
+          timeoutSeconds: 1
         name: notification-mongodb
         resources: {}
         volumeMounts:
