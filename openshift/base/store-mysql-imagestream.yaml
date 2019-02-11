@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    com.xebialabs.service: store-mysql
+    app: store-mysql
   name: store-mysql
 spec:
   tags:

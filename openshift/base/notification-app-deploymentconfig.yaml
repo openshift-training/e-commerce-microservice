@@ -2,18 +2,18 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   labels:
-    com.xebialabs.service: notification-app
+    app: notification-app
   name: notification-app
 spec:
   replicas: 1
   selector:
-    com.xebialabs.service: notification-app
+    app: notification-app
   strategy:
     resources: {}
   template:
     metadata:
       labels:
-        com.xebialabs.service: notification-app
+        app: notification-app
     spec:
       containers:
       - env:

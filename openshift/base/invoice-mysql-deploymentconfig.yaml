@@ -2,12 +2,12 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   labels:
-    com.xebialabs.service: invoice-mysql
+    app: invoice-mysql
   name: invoice-mysql
 spec:
   replicas: 1
   selector:
-    com.xebialabs.service: invoice-mysql
+    app: invoice-mysql
   strategy:
     recreateParams:
       timeoutSeconds: 600
@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        com.xebialabs.service: invoice-mysql
+        app: invoice-mysql
     spec:
       containers:
       - args:

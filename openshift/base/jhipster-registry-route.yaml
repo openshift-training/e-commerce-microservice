@@ -2,10 +2,9 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
-    icom.xebialabs.service: jhipster-registry
+    iapp: jhipster-registry
   name: jhipster-registry
 spec:
-  host: jhipster-registry.openshift-training.io
   port:
     targetPort: '5601'
   to:

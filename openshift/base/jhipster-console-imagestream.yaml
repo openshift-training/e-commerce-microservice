@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    com.xebialabs.service: jhipster-console
+    app: jhipster-console
   name: jhipster-console
 spec:
   tags:

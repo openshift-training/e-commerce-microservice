@@ -3,8 +3,5 @@ bases:
 
 namespace: ecommerce-dev
 
-commonLabels:
-  variant: development
-
 resources:
   - namespace.yaml

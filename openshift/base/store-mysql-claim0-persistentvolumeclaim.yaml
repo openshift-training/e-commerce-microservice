@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    com.xebialabs.service: store-mysql-claim0
+    app: store-mysql-claim0
   name: store-mysql-claim0
 spec:
   accessModes:

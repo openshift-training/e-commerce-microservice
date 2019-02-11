@@ -3,8 +3,5 @@ bases:
 
 namespace: ecommerce-prod
 
-commonLabels:
-  variant: production
-
 resources:
   - namespace.yaml

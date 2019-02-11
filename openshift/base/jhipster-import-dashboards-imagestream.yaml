@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    com.xebialabs.service: jhipster-import-dashboards
+    app: jhipster-import-dashboards
   name: jhipster-import-dashboards
 spec:
   tags:

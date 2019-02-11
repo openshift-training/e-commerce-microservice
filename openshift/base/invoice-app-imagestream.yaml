@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    com.xebialabs.service: invoice-app
+    app: invoice-app
   name: invoice-app
 spec:
   tags:

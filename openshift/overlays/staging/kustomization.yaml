@@ -3,8 +3,5 @@ bases:
 
 namespace: ecommerce-stage
 
-commonLabels:
-  variant: staging
-
 resources:
   - namespace.yaml

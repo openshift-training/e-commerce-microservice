@@ -2,18 +2,18 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   labels:
-    com.xebialabs.service: jhipster-console
+    app: jhipster-console
   name: jhipster-console
 spec:
   replicas: 1
   selector:
-    com.xebialabs.service: jhipster-console
+    app: jhipster-console
   strategy:
     resources: {}
   template:
     metadata:
       labels:
-        com.xebialabs.service: jhipster-console
+        app: jhipster-console
     spec:
       containers:
       - env:

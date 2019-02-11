@@ -34,7 +34,6 @@ resources:
   - jhipster-registry-service.yaml  
   - jhipster-registry-route.yaml
   # JHipster logstash
-  - jhipster-logstash-claim0-persistentvolumeclaim.yaml
   - jhipster-logstash-deploymentconfig.yaml
   - jhipster-logstash-imagestream.yaml
   - jhipster-logstash-service.yaml

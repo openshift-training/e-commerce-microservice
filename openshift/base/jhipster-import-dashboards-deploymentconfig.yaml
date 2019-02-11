@@ -3,18 +3,18 @@ kind: DeploymentConfig
 metadata:
   annotations:
   labels:
-    com.xebialabs.service: jhipster-import-dashboards
+    app: jhipster-import-dashboards
   name: jhipster-import-dashboards
 spec:
   replicas: 1
   selector:
-    com.xebialabs.service: jhipster-import-dashboards
+    app: jhipster-import-dashboards
   strategy:
     resources: {}
   template:
     metadata:
       labels:
-        com.xebialabs.service: jhipster-import-dashboards
+        app: jhipster-import-dashboards
     spec:
       containers:
       - env:

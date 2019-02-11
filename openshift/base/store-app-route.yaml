@@ -4,10 +4,9 @@ metadata:
   annotations:
     kubernetes.io/tls-acme: 'true'
   labels:
-    com.xebialabs.service: store-app
+    app: store-app
   name: store-app
 spec:
-  host: store-app.openshift-training.io
   port:
     targetPort: '8080'
   to:
