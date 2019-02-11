@@ -41,14 +41,6 @@ spec:
         ports:
         - containerPort: 8761
         resources: {}
-        volumeMounts:
-        - mountPath: /central-config
-          name: jhipster-registry-claim0
-      restartPolicy: Always
-      volumes:
-      - name: jhipster-registry-claim0
-        persistentVolumeClaim:
-          claimName: jhipster-registry-claim0
   test: false
   triggers:
   - type: ConfigChange

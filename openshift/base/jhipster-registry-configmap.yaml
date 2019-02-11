@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  application.yaml: |-
+    jhipster:
+      security:
+        authentication:
+          jwt:
+            secret: YWZkc2tqbGFqbWZsb2t3cW5tZmtsam13b2llamZvaWpha3BmamFrZGpma2xzamRmbGtzZGYK
+kind: ConfigMap
+metadata:
+  name: config

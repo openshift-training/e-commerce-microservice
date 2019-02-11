@@ -5,6 +5,7 @@ resources:
   - store-app-service.yaml
   - store-app-route.yaml
   # Store Database
+  - store-mysql-claim0-persistentvolumeclaim.yaml
   - store-mysql-deploymentconfig.yaml
   - store-mysql-imagestream.yaml
   - store-mysql-service.yaml  
@@ -13,6 +14,7 @@ resources:
   - invoice-app-imagestream.yaml
   - invoice-app-service.yaml
   # Invoice Database
+  - invoice-mysql-claim0-persistentvolumeclaim.yaml
   - invoice-mysql-deploymentconfig.yaml
   - invoice-mysql-imagestream.yaml
   - invoice-mysql-service.yaml
@@ -20,12 +22,13 @@ resources:
   - notification-app-deploymentconfig.yaml
   - notification-app-imagestream.yaml
   # Notification Database
-  - notification-mongodb-deployment.yaml
+  - notification-mongodb-claim0-persistentvolumeclaim.yaml
   - notification-mongodb-deploymentconfig.yaml
   - notification-mongodb-imagestream.yaml
   - notification-mongodb-service.yaml  
   # JHipster Registry
   - jhipster-registry-claim0-persistentvolumeclaim.yaml
+  - jhipster-registry-configmap.yaml
   - jhipster-registry-deploymentconfig.yaml
   - jhipster-registry-imagestream.yaml
   - jhipster-registry-service.yaml  
@@ -44,6 +47,5 @@ resources:
   - jhipster-elasticsearch-imagestream.yaml
   - jhipster-elasticsearch-service.yaml
   # JHipster import Job
-  - jhipster-import-dashboards-deployment.yaml
   - jhipster-import-dashboards-deploymentconfig.yaml
   - jhipster-import-dashboards-imagestream.yaml

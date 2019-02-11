@@ -32,7 +32,14 @@ spec:
         image: ' '
         name: store-mysql
         resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: store-mysql-claim0
       restartPolicy: Always
+      volumes:
+      - name: store-mysql-claim0
+        persistentVolumeClaim:
+          claimName: store-mysql-claim0
   test: false
   triggers:
   - type: ConfigChange

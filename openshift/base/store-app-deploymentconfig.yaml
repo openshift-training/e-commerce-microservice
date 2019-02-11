@@ -18,13 +18,13 @@ spec:
       containers:
       - env:
         - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
-          value: http://admin:${jhipster.registry.password}@jhipster-registry:8761/eureka
+          value: http://admin:admin@jhipster-registry:8761/eureka
         - name: JHIPSTER_REGISTRY_PASSWORD
           value: admin
         - name: JHIPSTER_SLEEP
           value: "30"
         - name: SPRING_CLOUD_CONFIG_URI
-          value: http://admin:${jhipster.registry.password}@jhipster-registry:8761/config
+          value: http://admin:admin@jhipster-registry:8761/config
         - name: SPRING_DATASOURCE_URL
           value: jdbc:mysql://store-mysql:3306/store?useUnicode=true&characterEncoding=utf8&useSSL=false
         - name: SPRING_PROFILES_ACTIVE
@@ -34,7 +34,6 @@ spec:
         ports:
         - containerPort: 8080
         resources: {}
-      restartPolicy: Always
   test: false
   triggers:
   - type: ConfigChange

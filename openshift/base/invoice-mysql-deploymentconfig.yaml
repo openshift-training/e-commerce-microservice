@@ -32,7 +32,14 @@ spec:
         image: ' '
         name: invoice-mysql
         resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: invoice-mysql-claim0
       restartPolicy: Always
+      volumes:
+      - name: invoice-mysql-claim0
+        persistentVolumeClaim:
+          claimName: invoice-mysql-claim0
   test: false
   triggers:
   - type: ConfigChange

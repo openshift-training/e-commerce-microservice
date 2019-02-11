@@ -19,7 +19,14 @@ spec:
       - image: ' '
         name: notification-mongodb
         resources: {}
+        volumeMounts:
+        - mountPath: /data/db
+          name: notification-mongodb-claim0
       restartPolicy: Always
+      volumes:
+      - name: notification-mongodb-claim0
+        persistentVolumeClaim:
+          claimName: notification-mongodb-claim0
   test: false
   triggers:
   - type: ConfigChange
