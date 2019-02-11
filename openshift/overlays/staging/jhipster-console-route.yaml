@@ -5,10 +5,4 @@ metadata:
     com.xebialabs.service: jhipster-console
   name: jhipster-console
 spec:
-  port:
-    targetPort: '5601'
-  to:
-    kind: Service
-    name: jhipster-console
-    weight: 100
-  wildcardPolicy: None
+  host: jhipster-console.openshift-training.io
