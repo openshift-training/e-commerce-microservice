@@ -2,18 +2,18 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   labels:
-    app: store-app
+    com.xebialabs.service: store-app
   name: store-app
 spec:
   replicas: 1
   selector:
-    app: store-app
+    com.xebialabs.service: store-app
   strategy:
     resources: {}
   template:
     metadata:
       labels:
-        app: store-app
+        com.xebialabs.service: store-app
     spec:
       containers:
       - env:

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: jhipster-console
+    com.xebialabs.service: jhipster-console
   name: jhipster-console
 spec:
   ports:
@@ -10,4 +10,4 @@ spec:
     port: 5601
     targetPort: 5601
   selector:
-    app: jhipster-console
+    com.xebialabs.service: jhipster-console

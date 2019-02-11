@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    app: jhipster-logstash
+    com.xebialabs.service: jhipster-logstash
   name: jhipster-logstash
 spec:
   tags:

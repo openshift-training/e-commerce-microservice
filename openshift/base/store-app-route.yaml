@@ -4,7 +4,7 @@ metadata:
   annotations:
     kubernetes.io/tls-acme: 'true'
   labels:
-    app: store-app
+    com.xebialabs.service: store-app
   name: store-app
 spec:
   port:

@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    app: notification-mongodb
+    com.xebialabs.service: notification-mongodb
   name: notification-mongodb
 spec:
   tags:

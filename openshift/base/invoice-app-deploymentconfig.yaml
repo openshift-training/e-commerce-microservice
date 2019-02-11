@@ -2,18 +2,18 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   labels:
-    app: invoice-app
+    com.xebialabs.service: invoice-app
   name: invoice-app
 spec:
   replicas: 1
   selector:
-    app: invoice-app
+    com.xebialabs.service: invoice-app
   strategy:
     resources: {}
   template:
     metadata:
       labels:
-        app: invoice-app
+        com.xebialabs.service: invoice-app
     spec:
       containers:
       - env:

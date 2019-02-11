@@ -1,3 +1,4 @@
 base:
   - development
   - staging
+  - production

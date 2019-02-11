@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    app: invoice-mysql
+    com.xebialabs.service: invoice-mysql
   name: invoice-mysql
 spec:
   tags:

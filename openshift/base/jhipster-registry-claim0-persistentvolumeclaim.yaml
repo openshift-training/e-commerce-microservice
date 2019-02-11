@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    app: jhipster-registry-claim0
+    com.xebialabs.service: jhipster-registry-claim0
   name: jhipster-registry-claim0
 spec:
   accessModes:

@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    app: jhipster-elasticsearch
+    com.xebialabs.service: jhipster-elasticsearch
   name: jhipster-elasticsearch
 spec:
   tags:

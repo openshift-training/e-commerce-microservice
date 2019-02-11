@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    app: notification-app
+    com.xebialabs.service: notification-app
   name: notification-app
 spec:
   tags:

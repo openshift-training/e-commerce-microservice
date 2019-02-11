@@ -3,7 +3,7 @@ kind: ImageStream
 metadata:
   creationTimestamp: null
   labels:
-    app: store-app
+    com.xebialabs.service: store-app
   name: store-app
 spec:
   tags:

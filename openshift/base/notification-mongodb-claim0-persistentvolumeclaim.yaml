@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    app: notification-mongodb-claim0
+    com.xebialabs.service: notification-mongodb-claim0
   name: notification-mongodb-claim0
 spec:
   accessModes:

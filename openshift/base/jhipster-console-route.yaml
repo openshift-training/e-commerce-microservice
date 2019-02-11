@@ -2,7 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
-    iapp: jhipster-console
+    icom.xebialabs.service: jhipster-console
   name: jhipster-console
 spec:
   port:

@@ -2,18 +2,18 @@ apiVersion: v1
 kind: DeploymentConfig
 metadata:
   labels:
-    app: jhipster-logstash
+    com.xebialabs.service: jhipster-logstash
   name: jhipster-logstash
 spec:
   replicas: 1
   selector:
-    app: jhipster-logstash
+    com.xebialabs.service: jhipster-logstash
   strategy:
     resources: {}
   template:
     metadata:
       labels:
-        app: jhipster-logstash
+        com.xebialabs.service: jhipster-logstash
     spec:
       containers:
       - env:
