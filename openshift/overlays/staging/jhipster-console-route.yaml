@@ -5,4 +5,4 @@ metadata:
     com.xebialabs.service: jhipster-console
   name: jhipster-console
 spec:
-  host: jhipster-console.openshift-training.io
+  host: jhipster-console-stage.openshift-training.io

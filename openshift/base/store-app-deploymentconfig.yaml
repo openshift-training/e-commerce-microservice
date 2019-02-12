@@ -26,7 +26,7 @@ spec:
         - name: SPRING_CLOUD_CONFIG_URI
           value: http://admin:admin@jhipster-registry:8761/config
         - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://store-mysql:3306/store?useUnicode=true&characterEncoding=utf8&useSSL=false
+          value: jdbc:mysql://store_user:oBRAsxI4xqHxAfuC@store-mysql:3306/store?useUnicode=true&characterEncoding=utf8&useSSL=false
         - name: SPRING_PROFILES_ACTIVE
           value: prod,swagger
         image: ' '

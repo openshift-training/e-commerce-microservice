@@ -26,13 +26,27 @@ spec:
         - --character_set_server=utf8mb4
         - --explicit_defaults_for_timestamp
         env:
-        - name: MYSQL_ALLOW_EMPTY_PASSWORD
-          value: "yes"
-        - name: MYSQL_DATABASE
-          value: store
-        - name: MYSQL_USER
-          value: root
-        image: ' '
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                key: database-user
+                name: store-mysql
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-password
+                name: store-mysql
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: database-root-password
+                name: store-mysql
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: database-name
+                name: store-mysql
+        image: mysql:5.7
         name: store-mysql
         restartPolicy: Always
         readinessProbe:
@@ -42,12 +56,12 @@ spec:
               - '-i'
               - '-c'
               - >-
-                mysql -h 127.0.0.1 -u $MYSQL_USER -D $MYSQL_DATABASE -e 'SELECT 1'
+                mysql -h 127.0.0.1 -u $MYSQL_USER -D $MYSQL_DATABASE -p $MYSQL_PASSWORD -e 'SELECT 1'
           failureThreshold: 3
           initialDelaySeconds: 5
-          periodSeconds: 10
+          periodSeconds: 30
           successThreshold: 1
-          timeoutSeconds: 1
+          timeoutSeconds: 10
         livenessProbe:
           failureThreshold: 3
           initialDelaySeconds: 30
@@ -65,13 +79,4 @@ spec:
         persistentVolumeClaim:
           claimName: store-mysql-claim0
   test: false
-  triggers:
-  - type: ConfigChange
-  - imageChangeParams:
-      automatic: true
-      containerNames:
-      - store-mysql
-      from:
-        kind: ImageStreamTag
-        name: store-mysql:5.7.20
-    type: ImageChange
+  

@@ -7,8 +7,8 @@ resources:
   # Store Database
   - store-mysql-claim0-persistentvolumeclaim.yaml
   - store-mysql-deploymentconfig.yaml
-  - store-mysql-imagestream.yaml
   - store-mysql-service.yaml  
+  - store-mysql-secrets.yaml
   # Invoice Application
   - invoice-app-deploymentconfig.yaml
   - invoice-app-imagestream.yaml
@@ -16,8 +16,8 @@ resources:
   # Invoice Database
   - invoice-mysql-claim0-persistentvolumeclaim.yaml
   - invoice-mysql-deploymentconfig.yaml
-  - invoice-mysql-imagestream.yaml
   - invoice-mysql-service.yaml
+  - invoice-mysql-secrets.yaml
   # Notification Application
   - notification-app-deploymentconfig.yaml
   - notification-app-imagestream.yaml
