@@ -2,7 +2,6 @@ apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
   name: jhipster-elasticsearch-data
-  namespace: xl-demo
   labels:
     component: jhipster-elasticsearch
     role: data

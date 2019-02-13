@@ -36,10 +36,9 @@ resources:
   - jhipster-registry/jhipster-registry-route.yaml
   - jhipster-registry/jhipster-registry-secrets.yaml
   # JHipster logstash
-  - jhipster-logstash-deploymentconfig.yaml
-  - jhipster-logstash-imagestream.yaml
-  - jhipster-logstash-service.yaml
-  - jhipster-logstash-configmap.yaml
+  - console/jhipster-logstash-deploymentconfig.yaml
+  - console/jhipster-logstash-service.yaml
+  - console/jhipster-logstash-configmap.yaml
   # JHipster Console
   - jhipster-console/jhipster-console-deploymentconfig.yaml
   - jhipster-console/jhipster-console-imagestream.yaml
@@ -47,7 +46,6 @@ resources:
   - jhipster-console/jhipster-console-route.yaml
   # JHipster elasticsearch
   - jhipster-elasticsearch/jhipster-elasticsearch-client-deploymentconfig.yaml
-  - jhipster-elasticsearch/jhipster-elasticsearch-imagestream.yaml
   - jhipster-elasticsearch/jhipster-elasticsearch-service.yaml
   - jhipster-elasticsearch/jhipster-elasticsearch-discovery-service.yaml
   - jhipster-elasticsearch/jhipster-elasticsearch-data-service.yaml

@@ -60,14 +60,3 @@ spec:
       - containerPort: 5000
         protocol: UDP
       resources: {}
-  test: false
-  triggers:
-  - type: ConfigChange
-  - imageChangeParams:
-      automatic: true
-      containerNames:
-      - jhipster-logstash
-      from:
-        kind: ImageStreamTag
-        name: jhipster-logstash:v3.0.1
-    type: ImageChange

@@ -44,7 +44,7 @@ spec:
         - name: JHIPSTER_REGISTRY_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: registry-secret
+              name: jhipster-registry-secret
               key: registry-admin-password
         - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
           value: http://admin:admin@jhipster-registry:8761/eureka/

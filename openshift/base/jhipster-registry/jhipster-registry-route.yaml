@@ -6,7 +6,7 @@ metadata:
   name: jhipster-registry
 spec:
   port:
-    targetPort: '5601'
+    targetPort: 8761
   to:
     kind: Service
     name: jhipster-registry
