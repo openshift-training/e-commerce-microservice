@@ -116,6 +116,8 @@ spec:
           mountPath: /es
         - name: config
           mountPath: /es/config
+        securityContext:
+          privileged: true
       volumes:
       - name: config
         configMap:
