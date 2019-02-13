@@ -57,3 +57,4 @@ resources:
   # jhipster-zipkin
   - jhipster-zipkin/jhipster-zipkin-deploymentconfig.yaml
   - jhipster-zipkin/jhipster-zipkin-service.yaml
+  - jhipster-zipkin/jhipster-zipkin-route.yaml

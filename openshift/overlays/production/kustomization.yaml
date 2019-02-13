@@ -10,3 +10,4 @@ patchesStrategicMerge:
   - jhipster-console-route.yaml  
   - jhipster-registry-route.yaml
   - store-app-route.yaml
+  - jhipster-zipkin-route.yaml

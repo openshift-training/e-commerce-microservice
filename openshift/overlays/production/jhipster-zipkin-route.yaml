@@ -4,7 +4,7 @@ metadata:
   annotations:
     kubernetes.io/tls-acme: 'true'
   labels:
-    com.xebialabs.service: jhipster-console
-  name: jhipster-console
+    com.xebialabs.service: jhipster-zipkin
+  name: jhipster-zipkin
 spec:
-  host: jhipster-console.openshift-training.io
+  host: jhipster-zipkin.openshift-training.io

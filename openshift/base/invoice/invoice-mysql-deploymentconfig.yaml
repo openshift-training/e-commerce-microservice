@@ -58,5 +58,4 @@ spec:
       restartPolicy: Always
       volumes:
       - name: invoice-mysql-claim0
-        persistentVolumeClaim:
-          claimName: invoice-mysql-claim0
+        emptyDir: {}
