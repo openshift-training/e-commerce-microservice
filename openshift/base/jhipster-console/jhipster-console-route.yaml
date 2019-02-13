@@ -6,7 +6,7 @@ metadata:
   name: jhipster-console
 spec:
   port:
-    targetPort: '5601'
+    targetPort: 'http'
   to:
     kind: Service
     name: jhipster-console

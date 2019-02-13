@@ -19,36 +19,21 @@ spec:
         com.xebialabs.service: store-mysql
     spec:
       containers:
-      - args:
-        - mysqld
-        - --lower_case_table_names=1
-        - --skip-ssl
-        - --character_set_server=utf8mb4
-        - --explicit_defaults_for_timestamp
-        env:
-          - name: MYSQL_USER
-            valueFrom:
-              secretKeyRef:
-                key: database-user
-                name: store-mysql
-          - name: MYSQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                key: database-password
-                name: store-mysql
-          - name: MYSQL_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                key: database-root-password
-                name: store-mysql
-          - name: MYSQL_DATABASE
-            valueFrom:
-              secretKeyRef:
-                key: database-name
-                name: store-mysql
-        image: mysql:5.7
+      - env:
+        - name: MYSQL_USER
+          value: store_user
+        - name: MYSQL_PASSWORD
+          value: changeit
+        - name: MYSQL_ROOT_PASSWORD
+          value: changeit
+        - name: MYSQL_DATABASE
+          value: store
+        image: centos/mysql-57-centos7
         name: store-mysql
         restartPolicy: Always
+        ports:
+        - name: mysql
+          containerPort: 3306
         readinessProbe:
           exec:
             command:
@@ -56,7 +41,7 @@ spec:
               - '-i'
               - '-c'
               - >-
-                mysql -h 127.0.0.1 -u $MYSQL_USER -D $MYSQL_DATABASE -p $MYSQL_PASSWORD -e 'SELECT 1'
+                MYSQL_PWD="$MYSQL_PASSWORD" mysql -h localhost -u $MYSQL_USER -D $MYSQL_DATABASE -e 'SELECT 1'
           failureThreshold: 3
           initialDelaySeconds: 5
           periodSeconds: 30
@@ -76,7 +61,4 @@ spec:
           name: store-mysql-claim0
       volumes:
       - name: store-mysql-claim0
-        persistentVolumeClaim:
-          claimName: store-mysql-claim0
-  test: false
-  
+        emptyDir: {}

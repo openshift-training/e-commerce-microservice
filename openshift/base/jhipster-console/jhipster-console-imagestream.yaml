@@ -1,7 +1,6 @@
 apiVersion: v1
 kind: ImageStream
 metadata:
-  creationTimestamp: null
   labels:
     com.xebialabs.service: jhipster-console
   name: jhipster-console
@@ -11,6 +10,5 @@ spec:
     from:
       kind: DockerImage
       name: jhipster/jhipster-console:v3.0.1
-    generation: null
     importPolicy: {}
     name: v3.0.1

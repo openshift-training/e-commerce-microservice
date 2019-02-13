@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    com.xebialabs.service: notification-app
+  name: notification-app
+spec:
+  ports:
+  - name: "http"
+    port: 8082
+    targetPort: 8082
+  selector:
+    com.xebialabs.service: notification-app

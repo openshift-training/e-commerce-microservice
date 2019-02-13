@@ -8,24 +8,17 @@ spec:
   replicas: 1
   selector:
     com.xebialabs.service: jhipster-console
-  strategy:
-    resources: {}
   template:
     metadata:
       labels:
         com.xebialabs.service: jhipster-console
     spec:
       containers:
-      - env:
-        - name: ELASTICSEARCH_URL
-          value: http://jhipster-elasticsearch:9200
+      - name: jhipster-console
         image: ' '
-        name: jhipster-console
         ports:
-        - containerPort: 5601
-        resources: {}
-      restartPolicy: Always
-  test: false
+          - containerPort: 5601
+        restartPolicy: Always
   triggers:
   - type: ConfigChange
   - imageChangeParams:

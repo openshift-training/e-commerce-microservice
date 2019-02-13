@@ -11,8 +11,5 @@ spec:
     from:
       kind: DockerImage
       name: jhipster/jhipster-elasticsearch:v3.0.1
-    generation: null
     importPolicy: {}
     name: v3.0.1
-status:
-  dockerImageRepository: ""

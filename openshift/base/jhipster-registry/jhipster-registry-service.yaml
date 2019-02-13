@@ -6,7 +6,7 @@ metadata:
   name: jhipster-registry
 spec:
   ports:
-  - name: "8761"
+  - name: "http"
     port: 8761
     targetPort: 8761
   selector:

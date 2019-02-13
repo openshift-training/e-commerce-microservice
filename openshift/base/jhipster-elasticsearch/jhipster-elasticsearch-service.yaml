@@ -3,6 +3,7 @@ kind: Service
 metadata:
   labels:
     com.xebialabs.service: jhipster-elasticsearch
+    role: client
   name: jhipster-elasticsearch
 spec:
   ports:
@@ -11,3 +12,4 @@ spec:
     targetPort: 9200
   selector:
     com.xebialabs.service: jhipster-elasticsearch
+    role: client

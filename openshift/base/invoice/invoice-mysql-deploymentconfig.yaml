@@ -19,33 +19,15 @@ spec:
         com.xebialabs.service: invoice-mysql
     spec:
       containers:
-      - args:
-        - mysqld
-        - --lower_case_table_names=1
-        - --skip-ssl
-        - --character_set_server=utf8mb4
-        - --explicit_defaults_for_timestamp
-        env:
-          - name: MYSQL_USER
-            valueFrom:
-              secretKeyRef:
-                key: database-user
-                name: invoice-mysql
-          - name: MYSQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                key: database-password
-                name: invoice-mysql
-          - name: MYSQL_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                key: database-root-password
-                name: invoice-mysql
-          - name: MYSQL_DATABASE
-            valueFrom:
-              secretKeyRef:
-                key: database-name
-                name: invoice-mysql
+      - env:
+        - name: MYSQL_USER
+          value: invoice_user
+        - name: MYSQL_PASSWORD
+          value: changeit
+        - name: MYSQL_ROOT_PASSWORD
+          value: changeit
+        - name: MYSQL_DATABASE
+          value: invoice
         readinessProbe:
           exec:
             command:
@@ -67,7 +49,7 @@ spec:
           tcpSocket:
             port: 3306
           timeoutSeconds: 1
-        image: mysql:5.7
+        image: centos/mysql-57-centos7
         name: invoice-mysql
         resources: {}
         volumeMounts:

@@ -1,0 +1,136 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: jhipster-elasticsearch-data
+  namespace: xl-demo
+  labels:
+    component: jhipster-elasticsearch
+    role: data
+spec:
+  serviceName: jhipster-elasticsearch-data
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: jhipster-elasticsearch
+        role: data
+    spec:
+      initContainers:
+      - name: init-sysctl
+        image: busybox
+        command:
+        - "/bin/sh"
+        - "-c"
+        - "chown -R 1000:1000 /es"
+        - sysctl
+        - -w
+        - vm.max_map_count=262144
+        securityContext:
+          runAsUser: 0
+        volumeMounts:
+        - name: storage
+          mountPath: /es
+      containers:
+      - name: jhipster-elasticsearch-data
+        image: jhipster/jhipster-elasticsearch:v3.0.1
+        env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: node.name
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: cluster.name
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: cluster.name
+        - name: discovery.type
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: discovery.type
+        - name: node.master
+          value: "false"
+        - name: discovery.zen.minimum_master_nodes
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: minimum.master.nodes
+        - name: discovery.zen.ping.unicast.hosts
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: unicast.host
+        - name: node.ingest
+          value: "true"
+        - name: node.data
+          value: "true"
+        - name: network.host
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: network.host
+        - name: transport.host
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: network.host
+        - name: http.enabled
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: http.enabled
+        - name: bootstrap.memory_lock
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: memory.lock
+        - name: ES_JAVA_OPTS
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: memory.opts
+        - name: path.data
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: path.data
+        - name: path.logs
+          valueFrom:
+            configMapKeyRef:
+              name: es-config
+              key: path.logs
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "400m"
+        ports:
+        - containerPort: 9300
+          name: transport
+          protocol: TCP
+        - containerPort: 9200
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - name: storage
+          mountPath: /es
+        - name: config
+          mountPath: /es/config/
+      volumes:
+      - name: config
+        configMap:
+          name: es-config
+  volumeClaimTemplates:
+  - metadata:
+      name: storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi

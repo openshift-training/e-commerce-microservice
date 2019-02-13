@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    com.xebialabs.service: jhipster-zipkin
+  name: jhipster-zipkin
+spec:
+  ports:
+  - name: "http"
+    port: 9411
+    targetPort: 9411
+  selector:
+    com.xebialabs.service: jhipster-zipkin
